@@ -1,0 +1,10 @@
+Fs = 30000;
+mtcFs = 40;
+for ii = 1:5
+    fid = fopen(ET_PATH(ii).binary);
+    data = fread(fid,'int32');
+    mtcData = csvread(ET_PATH(ii).mtc);
+
+    disp(['data minutes: ',num2str(length(data) / Fs / 60)]);
+    disp(['mtc minutes: ',num2str(length(mtcData) / mtcFs / 60)]);
+end
